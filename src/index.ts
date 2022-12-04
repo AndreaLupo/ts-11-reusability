@@ -48,9 +48,10 @@ countManWins(genericReader.data);
 
 // 
 console.log('Solution with interfaces..');
-const csvFileReader: CsvFileReaderInt = new CsvFileReaderInt('football.csv');
+/* const csvFileReader: CsvFileReaderInt = new CsvFileReaderInt('football.csv');
 
-const matchReader = new MatchReaderInt(csvFileReader);
+const matchReader = new MatchReaderInt(csvFileReader); */
+const matchReader = MatchReaderInt.fromCsv('football.csv');
 matchReader.load();
 countManWins(matchReader.matches);
 
@@ -70,11 +71,6 @@ summary.buildAndPrintReport(matchReader.matches);
 
 
 // html report
-import { HtmlReport } from './reportTargets/HtmlReport';
-
-const htmlSummary = new Summary(
-  new WinsAnalysis('Man United'),
-  new HtmlReport('report.html')
-);
+const htmlSummary = Summary.winsAnalysisWithHtmlReport('Man United', 'report.html');
 
 htmlSummary.buildAndPrintReport(matchReader.matches);
