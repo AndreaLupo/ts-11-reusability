@@ -1,6 +1,9 @@
 import { MatchReader } from './inheritance/MatchReader';
 import { CsvFileReader } from "./CsvFileReader.start";
 import { MatchResult } from "./MatchResult";
+import { CsvFileReaderInt } from './CsvFileReaderInt';
+import { MatchReader as MatchReaderInt } from './MatchReader';
+import { match } from 'assert';
 
 const reader = new CsvFileReader('football.csv');
 reader.read();
@@ -42,3 +45,11 @@ const genericReader = new MatchReader('football.csv');
 genericReader.read();
 
 countManWins(genericReader.data);
+
+// 
+console.log('Solution with interfaces..');
+const csvFileReader: CsvFileReaderInt = new CsvFileReaderInt('football.csv');
+
+const matchReader = new MatchReaderInt(csvFileReader);
+matchReader.load();
+countManWins(matchReader.matches);
