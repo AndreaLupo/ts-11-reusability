@@ -53,3 +53,28 @@ const csvFileReader: CsvFileReaderInt = new CsvFileReaderInt('football.csv');
 const matchReader = new MatchReaderInt(csvFileReader);
 matchReader.load();
 countManWins(matchReader.matches);
+
+
+console.log('Now let go with the final composition!');
+
+import { ConsoleReport } from './reportTargets/ConsoleReport';
+import { WinsAnalysis } from './analyzers/WinsAnalysis';
+import { Summary } from './Summary';
+
+const summary = new Summary(
+  new WinsAnalysis('Man United'),
+  new ConsoleReport()
+);
+
+summary.buildAndPrintReport(matchReader.matches);
+
+
+// html report
+import { HtmlReport } from './reportTargets/HtmlReport';
+
+const htmlSummary = new Summary(
+  new WinsAnalysis('Man United'),
+  new HtmlReport('report.html')
+);
+
+htmlSummary.buildAndPrintReport(matchReader.matches);
