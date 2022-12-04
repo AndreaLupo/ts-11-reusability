@@ -1,9 +1,6 @@
 import { dateStringToDate } from './utils';
 import { MatchResult } from "./MatchResult";
-
-// type useful for the tuple
-type MatchData = [Date, string, string, number, number, MatchResult, string];
-
+import { MatchData } from './MatchData';
 
 export interface DataReader {
   read(): void;
