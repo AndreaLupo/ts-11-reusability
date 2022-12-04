@@ -1,4 +1,4 @@
-import { MatchReader } from './MatchReader';
+import { MatchReader } from './inheritance/MatchReader';
 import { CsvFileReader } from "./CsvFileReader.start";
 import { MatchResult } from "./MatchResult";
 
