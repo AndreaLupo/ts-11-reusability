@@ -7,3 +7,4 @@ This project uses:
 - custom and reusable implementation of csv files reader
 - generics
 - composition (i.e. object with another object through interface)
+- use static methods to create instances of composition classes
